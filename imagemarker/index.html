@@ -1,5 +1,31 @@
 <script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
 
+  <script>
+                       
+            // Invitation Video Handler
+            
+            AFRAME.registerComponent('video-vidhandler', {
+                init: function() {
+		    console.log('video init entered');
+                    this.toggle = false;
+                    this.vid = document.querySelector("#invitation");
+                    this.vid.pause();
+                },
+                tick: function() {
+                    if (this.el.object3D.visible == true) {
+                        if (!this.toggle) {
+                            this.toggle = true;
+                            this.vid.play();
+                        }
+                    } else {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }
+                }
+            });
+
+   </script>
+
 <style>
   .arjs-loader {
     height: 100%;
@@ -63,20 +89,20 @@
         <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
         <a-nft
             type='nft' url='./imagemarker/elle/download'
-            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'video-vidhandler>
             
 	<a-entity
           position="1 0 0"
-          scale=".25 .25 .25"
+          scale="10 10 10"
           gltf-model="#3d1">
         ></a-entity>	  
         
       
-       <a-plane scale="1 1" position="0 0 0" rotation="-90 0 0" src="#texture">
+       <a-plane scale="10 10" position="0 0 0" rotation="-90 0 0" src="#texture">
          
-       <a-plane scale="1 1" position="1 0 0" rotation="0 0 0" src="#map-point">
+       <a-plane scale="10 10" position="1 0 0" rotation="0 0 0" src="#map-point">
       
-       <a-plane scale = "1 1" position='-1 1 0' rotation="0 0 0" material='transparent:true;src:#invitation' controls></a-plane>
+       <a-plane scale = "10 10" position='-1 1 0' rotation="0 0 0" material='transparent:true;src:#invitation' controls></a-plane>
 			
 		
         </a-nft>
