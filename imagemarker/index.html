@@ -29,6 +29,32 @@
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
+	
+	
+	    <a-assets>
+
+                
+                <!-- Invitation  Video -->
+                
+                <video preload="none" id="invitation" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
+                    <source  src="videos/invitation.mp4">
+                </video>
+
+                <!-- Map point Image -->
+
+                <img id="map-point" src="images/map-navigate.jpg">     
+                
+                <!-- Texture Image -->
+
+                <img id="texture" src="images/texture.jpg">
+                
+                <a-asset-item id="3d1" src="images/mlp_inspired/scene.gltf">
+		
+
+            </a-assets>
+	
+		    
+		    
     <a-scene
         vr-mode-ui='enabled: false;'
         renderer="logarithmicDepthBuffer: true;"
@@ -38,12 +64,21 @@
         <a-nft
             type='nft' url='./imagemarker/elle/download'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-            <a-entity
-                gltf-model='./unicorn/scene.gltf'
-                scale="10 10 10"
-                position="0 0 0"
-                >
-            </a-entity>
+            
+	<a-entity
+          position="1 0 0"
+          scale=".25 .25 .25"
+          gltf-model="#3d1">
+        ></a-entity>	  
+        
+      
+       <a-plane scale="1 1" position="0 0 0" rotation="-90 0 0" src="#texture">
+         
+       <a-plane scale="1 1" position="1 0 0" rotation="0 0 0" src="#map-point">
+      
+       <a-plane scale = "1 1" position='-1 1 0' rotation="0 0 0" material='transparent:true;src:#invitation' controls></a-plane>
+			
+		
         </a-nft>
 		<a-entity camera></a-entity>
     </a-scene>
