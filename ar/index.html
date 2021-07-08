@@ -47,6 +47,17 @@
                     muted
                     playsinline
                 ></video>
+                
+                 <!-- Map point Image -->
+
+                <img id="map-point" src="images/map-navigate.jpg">     
+                
+                <!-- Texture Image -->
+
+                <img id="texture" src="images/texture.jpg">
+                
+                <a-asset-item id="3d1" src="images/mlp_inspired/scene.gltf">
+                
             </a-assets>
 
             <a-marker
@@ -69,6 +80,20 @@
                     position="0 0 0"
                     rotation="-90 0 0"
                 ></a-video>
+                
+                <a-entity
+                    position="1 0 0"
+                    scale=".25 .25 .25"
+                    class="clickable"
+                    gesture-handler
+                    gltf-model="#3d1">
+                ></a-entity>	  
+        
+                <a-plane scale="1 1" position="0 0 0" rotation="-90 0 0" src="#texture">
+         
+                <a-plane scale="1 1" position="1 0 0" rotation="0 0 0" src="#map-point">
+                
+                
             </a-marker>
 
             <a-entity camera></a-entity>
